@@ -1,3 +1,41 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+@import url("https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Lato:300italic");
+@import url("https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Raleway:400,300");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
 body {
-  padding:10px;
+font-family:Lato,"Helvetica Neue",Helvetica,sans-serif;
+  }
+nav a {
+	text-decoration: none;
+	color:white;
+	
+}
+#login {
+	
+}
+#navigate {
+	margin:0;
+	padding:.5em;
+	list-style-type:none;
+
+	}
+#navigate li {
+	display:inline;	
+	
+}
+nav{	
+	position: fixed;
+	background-color: #181C22;
+	color:white;
+	font-size:16px;
+	width:100%;	
+	font-variant: small-caps;
+	z-index:10;
+}
+@media screen and (min-width:768px) {
+	ul li{padding:1em;}
+}
+#searched {
+	padding-top:50px;
 }

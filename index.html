@@ -18,30 +18,45 @@
 	
 </head>
 <body>
+<nav>
+	<ul id="navigate">
+		<li>
+			<a href="/#"><img width="20" alt="Spotify" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Spotify.svg/256px-Spotify.svg.png"/></a>
+		</li>	
+		<li> Spotify Challenge </li>
+		<!-- <li id = "login"> Login </li> -->
+	</ul>
+</nav>
 	<!-- Initiate app -->
 	<div ng-app="myApp" ng-controller="myCtrl">
 		<!-- Form -->
-		<form class="container" name="songForm">
-			<div class="form-group">
-				<label>Spotify search:</label>
-				<input name="search" placeholder="Enter your search.." ng-model="track" class="form-control"></input>
+		
+		
+		<form class="container" name="playlistForm">
+			<div class = "row">
+				<div class = "form-horizontal col-sm-6 col-md-6">
+					<div class="form-group" id ="searched">
+						<input name="search" placeholder="What u feelin..." ng-model="playlist" class="form-control"></input>
+					</div>
+				</div>
 			</div>
 			<div class="form-group">
-				<button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+				<button ng-disabled="playlistForm.search.$invalid" class="btn btn-primary" ng-click="getPlaylist()" type="submit">Submit</button>
 			</div>
 		</form>
-		
 		<!-- Results -->
 		<div class="container-fixed">
 			<div class="help-block">
-				<span ng-show="tracks.length>0">Click to sample</span>
+				<span ng-show="playlists.length>0">Click to sample</span>
 				<span ng-show="currentSong && !audioObject.paused">(playing)</span>
-			</div>
+			</div>			
 			<ul>
-				<li ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}">{{track.name + ', by ' + track.artists[0].name}}</li>
-			</ul>			
+				<li ng-repeat="playlist in playlists" class="" ng-click="songlist()" title="{{playlists.name}}">{{playlist.name}}</li>
+			</ul>
+			<ul>
+				<li ng-repeat=" songlist in songlists" class ="" title="{{songlists.name}}">{{songlist.name}}</li>
+			</ul>
 		</div>
-	</div>
 	</div>
 </body>
 </html>
