@@ -5,15 +5,18 @@
 
 body {
 font-family:Lato,"Helvetica Neue",Helvetica,sans-serif;
+background-color:#363636; 
+color:white; 
   }
 nav a {
 	text-decoration: none;
 	color:white;
 	
 }
-#login {
-	
+#songType:hover {
+	color:#D87E28;
 }
+
 #navigate {
 	margin:0;
 	padding:.5em;

@@ -1,21 +1,28 @@
-var yoData;
-var data;
+var datas;
 var secData;
-//var baseUrl = 'https://api.spotify.com/v1/search?type=track&query='
-var playlistUrl = 'https://api.spotify.com/v1/search?type=playlist&query='
+var playlistUrl = 'https://api.spotify.com/v1/search?type=album&query='
 var myApp = angular.module('myApp', [])
 
 var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   $scope.audioObject = {}
+  
   $scope.getPlaylist = function(){
 	$http.get(playlistUrl + $scope.playlist).success(function(responses){
-		secData = $scope.playlists = responses.playlists.items
+		secData = $scope.albums = responses.albums.items
+		console.log(responses);
 	})
   }
   
-  $scope.songlist = function(){
-	yoData = $scope.songlists.playlists.items
+  $scope.getSonglist = function(album){
+	$http.get(album + '/tracks').success(function(response) {
+		datas = $scope.songlists = response.items
+	})
   }
+  
+  $("#albumList").click(function() {
+	 $(this).hide(); 
+  });
+  
   
   $scope.play = function(song) {
     if($scope.currentSong == song) {
@@ -32,7 +39,6 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
   }
 })
 
-// Add tool tips to anything with a title property
 $('body').tooltip({
     selector: '[title]'
 });
